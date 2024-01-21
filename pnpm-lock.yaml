@@ -11,9 +11,6 @@ dependencies:
   '@react95/icons':
     specifier: ^2.1.1
     version: 2.1.1
-  '@react95/sans-serif':
-    specifier: ^0.0.3
-    version: 0.0.3
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -67,6 +64,9 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.18.1
     version: 6.18.1(eslint@8.56.0)(typescript@4.9.5)
+  autoprefixer:
+    specifier: ^10.4.17
+    version: 10.4.17(postcss@8.4.33)
   craco-swc:
     specifier: ^0.5.1
     version: 0.5.1(@craco/craco@7.1.0)(react-scripts@5.0.1)(webpack@5.89.0)
@@ -82,6 +82,9 @@ devDependencies:
   eslint-plugin-import:
     specifier: ^2.29.1
     version: 2.29.1(@typescript-eslint/parser@6.18.1)(eslint-import-resolver-typescript@3.6.1)(eslint@8.56.0)
+  postcss:
+    specifier: ^8.4.33
+    version: 8.4.33
   prettier:
     specifier: ^3.2.2
     version: 3.2.2
@@ -2289,10 +2292,6 @@ packages:
 
   /@react95/icons@2.1.1:
     resolution: {integrity: sha512-yWwnaHHFXZ81aN9HuLtOOOGZf4I54CtD0dufnmF07eWax6zQfP9qgnbZZMO2LdSWs4eufnmiWJc5ae/hG8VvzA==}
-    dev: false
-
-  /@react95/sans-serif@0.0.3:
-    resolution: {integrity: sha512-jXTtBZXTwT6NJqvy5VLTFZedbsP8bgKt0fkNhhuIqeW0PRGB7S/AXi20EDChZcu+8ZlJrQipWOWENV53QiFL2g==}
     dev: false
 
   /@rollup/plugin-babel@5.3.1(@babel/core@7.23.7)(rollup@2.79.1):

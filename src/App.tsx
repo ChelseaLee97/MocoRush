@@ -1,13 +1,9 @@
-import { Button, GlobalStyle, ThemeProvider } from '@react95/core';
-import '@react95/icons/icons.css';
-import '@react95/sans-serif';
-import './App.css';
+import { Button } from '@react95/core';
 
 const App = () => (
-  <ThemeProvider>
-    <GlobalStyle />
+  <main className="container">
+    <h1 className="text-3xl text-red-300 font-bold underline">Hello world!</h1>
     <Button>Click me!</Button>
-  </ThemeProvider>
+  </main>
 );
-
 export default App;
