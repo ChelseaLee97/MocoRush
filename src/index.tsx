@@ -13,7 +13,6 @@ import App from './App';
 import './index.css';
 
 const GlobalStyles = createGlobalStyle`
-  ${styleReset}
   @font-face {
     font-family: 'ms_sans_serif';
     src: url('${ms_sans_serif}') format('woff2');

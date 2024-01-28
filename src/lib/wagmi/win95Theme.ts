@@ -2,7 +2,7 @@ const win95Background = '#c3c7cb';
 const buttonBoxShadow = 'inset 1px 1px 0px 1px #ffffff, inset 0 0 0 1px #868a8e, 1px 1px 0 0px #000000';
 
 export const win95Theme = {
-  '--ck-font-family': 'MS Sans Serif, sans-serif',
+  '--ck-font-family': 'ms_sans_serif, sans-serif',
   '--ck-border-radius': '0px',
 
   '--ck-connectbutton-color': '#000',
