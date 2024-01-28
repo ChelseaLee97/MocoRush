@@ -32,6 +32,7 @@ contract MocoRush is Ownable {
         uint256 prizePool;
         address lastButtonPresser;
         uint256 totalTicketsBought;
+        bool finished;
     }
 
     mapping (uint256 => mapping (address => uint256)) public playerTicketBalanceByRound;
@@ -97,7 +98,8 @@ contract MocoRush is Ownable {
             endTime: block.timestamp + initialRoundTime,
             prizePool: lastRound.prizePool * TICKET_PERCENTAGE_FOR_NEXT_ROUND / 100,
             lastButtonPresser: address(0),
-            totalTicketsBought: 0
+            totalTicketsBought: 0,
+            finished: false
         });
         rounds.push(newRound);
 
@@ -154,6 +156,8 @@ contract MocoRush is Ownable {
     function closeRound() public onlyOwner {
         Round memory round = currentRound();
         require(block.timestamp > round.endTime, "Round is still active");
+
+        rounds[round.index].finished = true;
         players[round.lastButtonPresser].claims.push(RewardClaim({
             rewardType: RewardType.LAST_BUTTON_PRESS,
             roundIndex: round.index,
@@ -185,7 +189,8 @@ contract MocoRush is Ownable {
                 endTime: 0,
                 prizePool: 0,
                 lastButtonPresser: address(0),
-                totalTicketsBought: 0
+                totalTicketsBought: 0,
+                finished: false
             });
         }
         return rounds[rounds.length - 1];
@@ -220,6 +225,9 @@ contract MocoRush is Ownable {
 
     function calculateRewardAmountByClaim(RewardClaim memory claim) internal view returns (uint256) {
         Round storage round = rounds[claim.roundIndex];
+        if (!round.finished) {
+            return 0;
+        }
         if (claim.rewardType == RewardType.LAST_BUTTON_PRESS) {
             return round.prizePool * TICKET_PERCENTAGE_FOR_LAST_BUTTON_PRESSER / 100;
         }

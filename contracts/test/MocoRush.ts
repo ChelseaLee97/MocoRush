@@ -183,9 +183,9 @@ describe('MocoRush', function () {
         const myTickets = await mocoRush.read.ticketBalanceOf([owner.account.address]);
         expect(myTickets).to.equal(BigInt(0));
 
-        // check that reward is increased
+        // reward should be 0, until the round ends
         const myReward = await mocoRush.read.claimableRewardOf([owner.account.address]);
-        expect(myReward).to.equal((amount * 40n) / 100n);
+        expect(myReward).to.equal(BigInt(0));
       });
 
       it('should reject if the amount is greater than the current ticket balance', async function () {
@@ -283,6 +283,28 @@ describe('MocoRush', function () {
         await mocoRush.write.claimReward();
         await expect(mocoRush.write.claimReward()).to.be.rejectedWith('Nothing to claim');
       });
+    });
+  });
+
+  describe('claimableRewardOf()', function () {
+    it('should return the correct claimable reward', async function () {
+      const { mocoRush, publicClient, owner } = await loadFixture(deployMocoRushFixture);
+      await mocoRush.write.startNewRound();
+
+      const amount = BigInt(2 * 1e18);
+      await mocoRush.write.buyTickets([amount, NULL_ADDR]);
+      await mocoRush.write.pressButton([amount]);
+
+      // reward should be 0, until the round ends
+      expect(await mocoRush.read.claimableRewardOf([owner.account.address])).to.equal(BigInt(0));
+
+      await time.increase(2 * DAY);
+
+      await mocoRush.write.closeRound();
+
+      // now reward should be 90% of the prize pool
+      const myReward = await mocoRush.read.claimableRewardOf([owner.account.address]);
+      expect(myReward).to.equal((amount * 90n) / 100n);
     });
   });
 });
