@@ -1,7 +1,6 @@
 import React from 'react';
 import { ConnectKitProvider } from 'connectkit';
 import { createRoot } from 'react-dom/client';
-import { styleReset } from 'react95';
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
 import original from 'react95/dist/themes/original';
@@ -11,6 +10,7 @@ import { win95Theme } from '~/lib/wagmi/win95Theme';
 import { wagmiConfig } from '~/config';
 import App from './App';
 import './index.css';
+import { Toaster } from 'sonner';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -37,6 +37,7 @@ root.render(
       <ConnectKitProvider customTheme={win95Theme}>
         <GlobalStyles />
         <ThemeProvider theme={original}>
+          <Toaster theme="light" />
           <App />
         </ThemeProvider>
       </ConnectKitProvider>

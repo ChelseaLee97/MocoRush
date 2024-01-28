@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly VITE_ALCHEMY_ID: string;
   readonly VITE_WALLETCONNECT_PROJECT_ID: string;
   readonly VITE_MOCORUSH_ADDRESS_SEPOLIA: string;
+  readonly VITE_MOC_ADDRESS_SEPOLIA: string;
 }
 
 interface ImportMeta {

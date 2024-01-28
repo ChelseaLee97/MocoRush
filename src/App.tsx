@@ -1,121 +1,102 @@
 import React from 'react';
-import { MenuList, MenuListItem, Separator } from 'react95';
+import { BatExec, Jdbgmgr100, Shell3236 } from '@react95/icons';
+import { ConnectKitButton } from 'connectkit';
+import {
+  AppBar,
+  Button,
+  GroupBox,
+  ScrollView,
+  Tab,
+  TabBody,
+  Tabs,
+  TextInput,
+  Toolbar,
+  Window,
+  WindowContent,
+  WindowHeader,
+} from 'react95';
+import { toast } from 'sonner';
 import { useAccount } from 'wagmi';
+import { CurrentRoundInfo } from '~/components/CurrentRoundInfo.tsx';
+import { RewardTab } from '~/components/RewardTab.tsx';
+import { RoundTab } from '~/components/RoundTab.tsx';
+
+type Tab = 'round' | 'reward' | 'history';
 
 const App = () => {
   const { isConnected, address } = useAccount();
+  const [currentTab, setCurrentTab] = React.useState<Tab>('round');
   return (
-    <main>
-      {/*<TaskBar list={<List></List>} />*/}
-      {/*<Modal*/}
-      {/*  closeModal={() => {}}*/}
-      {/*  title="Ranking"*/}
-      {/*  icon={<Explorer100 variant="16x16_4" />}*/}
-      {/*  width="400"*/}
-      {/*  height="600"*/}
-      {/*  menu={[*/}
-      {/*    {*/}
-      {/*      name: 'File',*/}
-      {/*      list: <List></List>,*/}
-      {/*    },*/}
-      {/*  ]}*/}
-      {/*>*/}
-      {/*  <Frame className="w-full flex-1 p-1" bg="white" boxShadow="in" w={'100%'}>*/}
-      {/*    <List.Item>View</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>Customize this Folder...</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>Arrange Icons</List.Item>*/}
-      {/*    <List.Item>Line Up Icons</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>Refresh</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>Paste</List.Item>*/}
-      {/*    <List.Item>Paste Shortcut</List.Item>*/}
-      {/*    <List.Item>Undo Copy</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>New</List.Item>*/}
-      {/*    <List.Divider />*/}
-      {/*    <List.Item>Properties</List.Item>*/}
-      {/*  </Frame>*/}
-      {/*</Modal>*/}
-      {/*<Modal*/}
-      {/*  width="640"*/}
-      {/*  height="640"*/}
-      {/*  defaultPosition={{ x: 512, y: 112 }}*/}
-      {/*  icon={<Computer variant="16x16_4" />}*/}
-      {/*  title="Mocorush.exe"*/}
-      {/*  closeModal={() => {}}*/}
-      {/*  menu={[*/}
-      {/*    {*/}
-      {/*      name: 'File',*/}
-      {/*      list: <List></List>,*/}
-      {/*    },*/}
-      {/*    {*/}
-      {/*      name: 'Wallet',*/}
-      {/*      list: (*/}
-      {/*        <List>*/}
-      {/*          <ConnectKitButton.Custom>*/}
-      {/*            {({ isConnected, isConnecting, show, hide, address, ensName, chain }) => {*/}
-      {/*              return <List.Item onClick={show}>{isConnected ? 'Disconnect...' : 'Connect Wallet...'}</List.Item>;*/}
-      {/*            }}*/}
-      {/*          </ConnectKitButton.Custom>*/}
-      {/*          <List.Divider />*/}
-      {/*          <List.Item className="text-[#333333]" aria-disabled>*/}
-      {/*            {address ?? 'Not Connected'}*/}
-      {/*          </List.Item>*/}
-      {/*        </List>*/}
-      {/*      ),*/}
-      {/*    },*/}
-      {/*    {*/}
-      {/*      name: 'About',*/}
-      {/*      list: <List></List>,*/}
-      {/*    },*/}
-      {/*  ]}*/}
-      {/*>*/}
-      {/*  <div className="w-full h-full flex flex-col items-center justify-center">*/}
-      {/*    <h1 className="font-bold italic text-4xl text-gray-500" style={{ textShadow: 'white 2px 2px' }}>*/}
-      {/*      MocoRUSH*/}
-      {/*    </h1>*/}
-      {/*    <p className="mt-4 text-base">Who will be the last one standing?</p>*/}
+    <div className="w-screen min-h-screen flex justify-center items-center pb-10">
+      <main className="w-[1280px] flex flex-row space-x-4">
+        <Window className="flex-1">
+          <WindowHeader className="flex items-center justify-between">
+            <span></span>
+            <Button>
+              <span className="w-4 h-4">X</span>
+            </Button>
+          </WindowHeader>
 
-      {/*    <div className="w-full flex flex-row space-x-4">*/}
-      {/*      <Fieldset legend="Round Deadline" className="flex-1 flex flex-col items-center justify-center px-2 pb-6">*/}
-      {/*        <RoundInfo />*/}
-      {/*      </Fieldset>*/}
-      {/*      <Fieldset legend="Pool Information" className="flex-1 flex flex-col items-center justify-center px-2 pb-6">*/}
-      {/*        <p className="text-sm">The winner will receive</p>*/}
-      {/*        <h1 className="font-['Times'] text-3xl">1348 MOC</h1>*/}
-      {/*      </Fieldset>*/}
-      {/*    </div>*/}
-      {/*    <ConnectKitButton />*/}
-      {/*    <AccountStatus />*/}
-
-      {/*    <div className="w-full flex flex-row space-x-4">*/}
-      {/*      <Button className="flex-1 flex flex-row space-x-1 items-center !px-2">*/}
-      {/*        <Shell3214 />*/}
-      {/*        <span className="flex-1 text-center text-sm">Leaderboard</span>*/}
-      {/*      </Button>*/}
-      {/*      <Button className="flex-1 flex flex-row space-x-1 items-center !px-2">*/}
-      {/*        <Sendmail2001 />*/}
-      {/*        <span className="flex-1 text-center text-sm">Invite a Friend</span>*/}
-      {/*      </Button>*/}
-      {/*      <Button className="flex-1 flex flex-row space-x-1 items-center !px-2">*/}
-      {/*        <Winhlp324001 />*/}
-      {/*        <span className="flex-1 text-center text-sm">About Mocorush...</span>*/}
-      {/*      </Button>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</Modal>*/}
-      {/*<h1 className="text-3xl text-red-300 font-bold underline">Hello world!</h1>*/}
-      {/*<Button>Click me!</Button>*/}
-      <MenuList>
-        <MenuListItem>🎤 Sing</MenuListItem>
-        <MenuListItem>💃🏻 Dance</MenuListItem>
-        <Separator />
-        <MenuListItem disabled>😴 Sleep</MenuListItem>
-      </MenuList>
-    </main>
+          <div className="flex flex-col m-1">
+            <div className="w-full h-[54px] flex flex-row items-center px-2 mb-2">
+              <Jdbgmgr100 className="w-10 h-10 mr-2" />
+              <h1 className="text-3xl font-bold italic text-black" style={{ textShadow: 'white 2px 2px' }}>
+                MocoRush
+              </h1>
+              <div className="flex-grow" />
+              <ConnectKitButton />
+            </div>
+            <CurrentRoundInfo className="mb-4" />
+            <GroupBox label="Description" className="mx-2 flex-1 flex flex-col">
+              <span>
+                The one who pressed the button last will win the <b>50% of the prize</b>. <br />
+                Every time you press the button, the round will be extended by 1 hour. <br />
+                Use your ticket to press the button!
+              </span>
+            </GroupBox>
+          </div>
+        </Window>
+        <Window className="flex-1 !flex flex-col">
+          <WindowHeader className="flex items-center justify-between">
+            <span></span>
+            <Button>
+              <span className="w-4 h-4">X</span>
+            </Button>
+          </WindowHeader>
+          <WindowContent className="flex-1 flex flex-col">
+            <Tabs value={currentTab} onChange={(value) => setCurrentTab(value as Tab)}>
+              <Tab value="round">Current Round</Tab>
+              <Tab value="reward">Your Reward</Tab>
+              <Tab value="history">Round History</Tab>
+              <Tab value="history">Settings</Tab>
+            </Tabs>
+            <TabBody className="flex-1">
+              {currentTab === 'round' && <RoundTab />}
+              {currentTab === 'reward' && <RewardTab />}
+            </TabBody>
+          </WindowContent>
+        </Window>
+      </main>
+      <AppBar className="fixed bottom-0 left-0 right-0" style={{ top: 'inherit' }}>
+        <Toolbar className="justify-between">
+          <div className="flex flex-row">
+            <Button className="font-bold mr-2">
+              <Jdbgmgr100 className="w-5 h-5 mr-1" />
+              Start
+            </Button>
+            <Button active className="mr-2">
+              <BatExec className="w-4 h-4 mr-1" />
+              MocoRush.exe
+            </Button>
+            <Button>
+              <Shell3236 className="w-4 h-4 mr-1" />
+              Control.exe
+            </Button>
+          </div>
+          <TextInput placeholder="Search..." width={150} />
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
