@@ -5,14 +5,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '@react95/icons/icons.css';
 import './index.css';
+import { ConnectKitProvider } from 'connectkit';
+import { WagmiConfig } from 'wagmi';
+import { win95Theme } from '~/lib/wagmi/win95Theme';
+import { wagmiConfig } from '~/config';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
+    <WagmiConfig config={wagmiConfig}>
+      <ConnectKitProvider customTheme={win95Theme}>
+        <ThemeProvider>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </ConnectKitProvider>
+    </WagmiConfig>
   </React.StrictMode>,
 );
 

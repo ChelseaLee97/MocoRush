@@ -9,7 +9,8 @@
     "clean": "hardhat clean",
     "test": "hardhat test",
     "coverage": "hardhat coverage",
-    "deploy": "hardhat run --network rinkeby scripts/deploy.ts"
+    "hardhat": "hardhat",
+    "deploy:sepolia": "hardhat run --network sepolia scripts/deploy.ts"
   },
   "keywords": [],
   "author": "",
