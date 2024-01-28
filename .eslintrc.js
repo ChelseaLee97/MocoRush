@@ -3,15 +3,8 @@ const gitignore = ['node_modules', '**/dist', 'generated'];
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    // 'plugin:import/errors',
-    // 'plugin:import/warnings',
-    // 'plugin:import/typescript',
-    'prettier',
-  ],
-  plugins: ['@typescript-eslint', 'import'],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-type-checked', 'prettier'],
+  plugins: ['@typescript-eslint'],
   ignorePatterns: [...gitignore, '*.test.ts', 'scripts/**', '*.js'],
   parserOptions: {
     project: true,
@@ -39,13 +32,6 @@ module.exports = {
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
-    // 'no-console': 'warn',
-    'import/no-named-as-default': 'off',
-    'import/no-cycle': ['error', { maxDepth: 5, ignoreExternal: true }],
-    'import/no-unused-modules': 'error',
-    'import/no-deprecated': 'off',
-    'import/namespace': 'off',
-    'import/no-duplicates': 'off',
   },
   overrides: [
     {
@@ -53,12 +39,4 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/disable-type-checked'],
     },
   ],
-  settings: {
-    'import/resolver': {
-      typescript: {},
-      node: {
-        paths: ['src'],
-      },
-    },
-  },
 };

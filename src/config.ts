@@ -5,8 +5,8 @@ import { sepolia } from 'wagmi/chains';
 export const wagmiConfig = createConfig(
   getDefaultConfig({
     // Required API Keys
-    alchemyId: process.env.ALCHEMY_ID, // or infuraId
-    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID!,
+    alchemyId: import.meta.env.VITE_ALCHEMY_ID!, // or infuraId
+    walletConnectProjectId: import.meta.env.WALLETCONNECT_PROJECT_ID!,
 
     // Required
     appName: 'Mocorush',
