@@ -33,7 +33,7 @@ export function RewardTab({ className }: RewardTabProps) {
       <GroupBox label="Your Claimable Reward" className="py-6 flex flex-col justify-center items-center">
         <span className="text-black text-2xl font-bold">{displayRewardBalance} MOC</span>
       </GroupBox>
-      <Button primary={displayRewardBalance > 0} disabled={displayRewardBalance === 0} onClick={() => doClaimReward}>
+      <Button primary={displayRewardBalance > 0} disabled={displayRewardBalance === 0} onClick={() => doClaimReward()}>
         Claim Reward
       </Button>
     </div>
