@@ -6,6 +6,8 @@ Players use MOC tokens to buy tickets, directly contributing to the ever-increas
 
 Featuring real-time prize pool updates and a referral reward system, MOCO Rush encourages continuous player engagement. Live updates fuel the competition, while the referral system rewards players for expanding the game's community.
 
+![MocoRush Screenshot](./docs/image.png)
+
 ## Available Scripts
 
 In the project directory, you can run:

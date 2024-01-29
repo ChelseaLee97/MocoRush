@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Frame, GroupBox } from 'react95';
+import { Frame } from 'react95';
 import { cn } from '~/lib/utils';
 import { TransparentPattern } from '~/components/TransparentPattern';
 import { useCountdown } from '~/hooks/useCountdown.ts';
