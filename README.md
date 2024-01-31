@@ -2,7 +2,8 @@
 
 ## Disclaimer
 - Demo 의 경우 현재, 가상의 토큰으로 동작되는 것을 보여주기 위해 테스트넷에 배포되었습니다
-- Ethereum Sepolia testnet 으로 전환 후 사용하세요 
+- Ethereum Sepolia testnet 으로 전환 후 사용하세요
+- Full spec의 경우 demo video 를 참고하세요
 
 ### Game Rules & Mechanism:
 
