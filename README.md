@@ -51,3 +51,4 @@
 ![MocoRush Screenshot](./docs/image.png)
 
 ## To try demo: [https://mocorush.pages.dev/](https://mocorush.pages.dev/)https://mocorush.pages.dev/
+## Watch demo video : [https://drive.google.com/file/d/19Xm5nYGx6q8qbDGH4RE1zJfnkisk9aoY/view?usp=sharing]
